@@ -4,8 +4,8 @@ services:
     container_name: cadvisor
     image: gcr.io/cadvisor/cadvisor:latest
     network_mode: "host"
-    ports:
-      - "8080:8080"
+    # ports:
+    #  - "8080:8080"
     volumes: 
       - "/:/rootfs"
       - "/var/run:/var/run"
@@ -20,8 +20,8 @@ services:
     container_name: prometheus
     image: prom/prometheus:latest
     network_mode: "host"
-    ports:
-      - "9090:9090"
+    # ports:
+    #  - "9090:9090"
     volumes: 
       - "./prometheus.yml:/etc/prometheus/prometheus.yml"
     privileged: true
@@ -32,8 +32,8 @@ services:
     container_name: grafana
     image: grafana/grafana:latest
     network_mode: "host"
-    ports:
-      - "3000:3000"
+    # ports:
+    #  - "3000:3000"
     environment:
       - GF_PATHS_PROVISIONING=/etc/grafana/provisioning
       - DS_PROMETHEUS=prometheus
